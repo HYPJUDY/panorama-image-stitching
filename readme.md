@@ -2,6 +2,7 @@
 Automatically stiching several individual images to generate a panorama image.
 Follow the routine described in the paper [Automatic Panoramic Image Stitching using Invariant Features](http://matthewalunbrown.com/papers/ijcv2007.pdf).
 For more details about theory and practice of panorama image stitching including algorithms, results and analysis, please read [my post](https://hypjudy.github.io/2017/05/10/panorama-image-stitching/). 
+Any feedback is welcomed!
 
 ## Dependencies
 Implement with [The CImg Library](http://cimg.eu/) and [VLFeat open source library](http://www.vlfeat.org/index.html) in C++ language.
@@ -24,8 +25,8 @@ These instructions show how to setup a basic VLFeat project with Visual Studio 2
 Reference: [Using from C](http://www.vlfeat.org/install-c.html) and [Microsoft Visual Studio tutorial](http://www.vlfeat.org/vsexpress.html).
 
 # Results
-![](/images/panorama/building-ori.jpg)
-![](/images/panorama/building-cropped.bmp)
+![](https://github.com/HYPJUDY/panorama-image-stitching/blob/master/output/building-ori.jpg)
+![](https://github.com/HYPJUDY/panorama-image-stitching/blob/master/output/building-cropped.bmp)
 
-![](/images/panorama/flower-ori.jpg)
-![](/images/panorama/flower-cropped.bmp)
+![](https://github.com/HYPJUDY/panorama-image-stitching/blob/master/output/flower-ori.jpg)
+![](https://github.com/HYPJUDY/panorama-image-stitching/blob/master/output/flower-cropped.bmp)
