@@ -43,7 +43,7 @@ struct HomographyMatrix {
 
 /* Get all files in a folder specified by path and store the file names in a vector */
 void get_files_in_folder(string folder_path, vector<string> &file_paths) {
-	long hFile = 0;
+	intptr_t hFile = 0;
 	struct _finddata_t fileinfo;
 	string p;
 	if ((hFile = _findfirst(p.assign(folder_path).append("\\*").c_str(), &fileinfo)) != -1) {
