@@ -15,7 +15,12 @@
 #include <ctime>
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef __linux__
+#include <dirent.h>
+#include <dlfcn.h>
+#else
 #include <io.h>
+#endif
 #include <math.h>
 
 #include "vl/generic.h"
@@ -43,9 +48,28 @@ struct HomographyMatrix {
 
 /* Get all files in a folder specified by path and store the file names in a vector */
 void get_files_in_folder(string folder_path, vector<string> &file_paths) {
+	string p;
+#ifdef __linux__
+    DIR * dir = opendir(folder_path.c_str());
+    if (dir != NULL)
+    {
+        struct dirent * ent;
+        while ((ent = readdir(dir)) != NULL)
+        {
+			/* Recuresively open files ? */
+			if (ent->d_type == 4 && strcmp(ent->d_name, ".") != 0 && strcmp(ent->d_name, "..") != 0)
+				get_files_in_folder(p.assign(folder_path).append("/").append(ent->d_name), file_paths);
+			else if (ent->d_type == 8)
+			{
+				file_paths.push_back(p.assign(folder_path).append("/").append(ent->d_name));
+				printf("adding %s\n", ent->d_name);
+			}
+        }
+        closedir(dir);
+    }
+#else
 	intptr_t hFile = 0;
 	struct _finddata_t fileinfo;
-	string p;
 	if ((hFile = _findfirst(p.assign(folder_path).append("\\*").c_str(), &fileinfo)) != -1) {
 		do {
 			if ((fileinfo.attrib & _A_SUBDIR)) {
@@ -61,6 +85,7 @@ void get_files_in_folder(string folder_path, vector<string> &file_paths) {
 		} while (_findnext(hFile, &fileinfo) == 0);
 		_findclose(hFile);
 	}
+#endif
 }
 
 /* RGB to grayscale transformation */
