@@ -6,11 +6,13 @@ Any feedback is welcomed!
 
 ## Dependencies
 Implement with [The CImg Library](http://cimg.eu/) and [VLFeat open source library](http://www.vlfeat.org/index.html) in C++ language.
-Test on Visual Studio 2015, C++11.
+
+Test on Visual Studio 2015, C++11. You can also compile in Linux with [linuxbuild.sh](https://github.com/HYPJUDY/panorama-image-stitching/blob/master/linuxbuild.sh).
+
 Images should be of `bmp` format(much easier to convert by [ImageMagick](https://www.imagemagick.org/script/index.php)).
 
 ## Usage of VLFeat
-[Download](http://www.vlfeat.org/download.html) and unpack the latest VLFeat binary distribution (currently [VLFeat 0.9.20 binary package](http://www.vlfeat.org/download/vlfeat-0.9.20-bin.tar.gz)) in a directory of your choice (e.g. `F:\vlfeat-0.9.20-bin`)
+[Download](http://www.vlfeat.org/download.html) and unpack the latest VLFeat binary distribution (I used [VLFeat 0.9.20 binary package](http://www.vlfeat.org/download/vlfeat-0.9.20-bin.tar.gz) on May 11, 2017) in a directory of your choice (e.g. `F:\vlfeat-0.9.20-bin`)
 For Mac users, read this [Apple X-Code tutorial](http://www.vlfeat.org/xcode.html).
 These instructions show how to setup a basic VLFeat project with Visual Studio 2015 on Windows 10 (64 bit). Instructions for other versions of Visual Studio and Windows should be similar.
 1. Specify the value of the PATH environment variable. E.g. Add `F:\vlfeat-0.9.20-bin\vlfeat-0.9.20\bin\win64` to `Path`, where `win64` depends on your architecture.
