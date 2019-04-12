@@ -11,7 +11,11 @@
 
 
 int main() {
+#ifdef __linux__
+	string folder_path = "dataset3/";
+#else
 	string folder_path = "dataset3\\";
+#endif
 	const char *output_img_path = "output/flower.bmp";
 	const int threshold = 30;
 	CImg<unsigned char> output_img;
